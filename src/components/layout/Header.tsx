@@ -2,15 +2,10 @@ import { useContext } from "react"
 import { UserContext } from "../../App"
 import { auth } from "../../firebase/firebase"
 
-import { useSignOut } from "react-firebase-hooks/auth"
-
 function Header() {
   const { userStatus, setUserStatus } = useContext(UserContext)
-  // console.log("calling from the header", userStatus)
-  const [signOut] = useSignOut(auth)
 
   function handleSignOut() {
-    signOut()
     setUserStatus(undefined)
   }
   return (
